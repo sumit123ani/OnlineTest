@@ -4,13 +4,13 @@ import java.math.BigInteger;
 
 import com.online.test.bean.Test;
 
-public interface OnlineTestDao {
+public interface TestDaoI {
 
 	public Test addTest(Test  test);
 	
-	public Test updateTest(BigInteger testId, Test test);
+	public Test updateTest(BigInteger testId, Test test, String updateType);
 	
-	public void deleteTest(BigInteger testId);
+	public Test deleteTest(BigInteger testId);
 	
 	public Boolean assignTest(Long userId, Test test);
 }

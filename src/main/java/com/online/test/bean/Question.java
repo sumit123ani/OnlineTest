@@ -101,6 +101,14 @@ public class Question {
 	public void setMarksScored(BigDecimal marksScored) {
 		this.marksScored = marksScored;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Question [questionId=" + questionId + ", questionOptions=" + questionOptions + ", questionTitle="
+				+ questionTitle + ", questionAnswer=" + questionAnswer + ", questionMarks=" + questionMarks
+				+ ", chosenAnswer=" + chosenAnswer + ", marksScored=" + marksScored + "]";
+	}
 	
 	
 	

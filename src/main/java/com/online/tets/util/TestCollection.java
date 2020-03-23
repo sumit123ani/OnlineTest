@@ -10,18 +10,14 @@ import java.util.Set;
 
 import com.online.test.bean.Question;
 import com.online.test.bean.Test;
-import com.online.test.dao.QuestionDao;
-import com.online.test.dao.QuestionDaoClass;
-import com.online.test.dao.TestDao;
-import com.online.test.service.QuestionServiceClass;
-import com.online.test.service.ServiceTest;
-import com.online.test.service.TestServiceInt;
+import com.online.test.dao.QuestionDaoI;
+import com.online.test.dao.QuestionDaoImpl;
+import com.online.test.dao.TestDaoImpl;
+
 
 public class TestCollection {
 
-	//static QuestionServiceClass queService = new QuestionServiceClass();
-	//TestDao testDao = new TestDao();
-	static QuestionDaoClass questionDao = new QuestionDaoClass();
+	static QuestionDaoImpl questionDao = new QuestionDaoImpl();
 	
 	static ArrayList<Test> testList = new ArrayList<Test>();
 	static Set<Question> question1 = new HashSet<Question>();
@@ -39,7 +35,7 @@ public class TestCollection {
 		
 		//question1.add(queService.showQuestion());
 		question1.add(questionDao.showQuestion(BigInteger.valueOf(001)));
-		question1.add(questionDao.showQuestion(BigInteger.valueOf(001)));
+		question1.add(questionDao.showQuestion(BigInteger.valueOf(004)));
 		
 		question2.add(questionDao.showQuestion(BigInteger.valueOf(002)));
 		question2.add(questionDao.showQuestion(BigInteger.valueOf(003)));
@@ -56,19 +52,20 @@ public class TestCollection {
 				BigDecimal.valueOf(100.00), BigDecimal.valueOf(60.20), que, LocalDateTime.of(2020, 2, 15, 9, 30,00, 0),
 				LocalDateTime.of(2020, 2, 15, 02, 30,00, 0)));
 		
-		testList.add(new Test(BigInteger.valueOf(102), "CSS Test",LocalTime.of(02,00,00),question3, 
+		testList.add(new Test(BigInteger.valueOf(103), "CSS Test",LocalTime.of(02,00,00),question3, 
 				BigDecimal.valueOf(100.00), BigDecimal.valueOf(60.20), que, LocalDateTime.of(2020, 2, 15, 9, 30,00, 0),
 				LocalDateTime.of(2020, 2, 15, 02, 30,00, 0)));
 		
-		testList.add(new Test(BigInteger.valueOf(102), "CSS Test",LocalTime.of(02,00,00),question4, 
+		testList.add(new Test(BigInteger.valueOf(104), "CSS Test",LocalTime.of(02,00,00),question4, 
 				BigDecimal.valueOf(100.00), BigDecimal.valueOf(60.20), que, LocalDateTime.of(2020, 2, 15, 9, 30,00, 0),
 				LocalDateTime.of(2020, 2, 15, 02, 30,00, 0)));
 		
 	}
 	
 	
-	static public void addTest(Test test) {
+	static public Test addTest(Test test) {
 		testList.add(test);
+		return test;
 	}
 
 	static public Test showTest(BigInteger id)
@@ -100,7 +97,7 @@ public class TestCollection {
 			return test;
 	}
 
-	public void deleteTest(BigInteger id)
+	public Test deleteTest(BigInteger id)
 	{
 		int index =0;
 		
@@ -108,15 +105,8 @@ public class TestCollection {
 		 if(testList.get(i).getTestId().compareTo(id) == 0) 
 			 index = i;
 		}
-		testList.remove(index);
+		return testList.remove(index);
 	}
 	
-	public void addQuestionToTest(BigInteger testId, Question question)
-	{
-		
-		question4.add(question);
-	
-		
-	}
 	
 }

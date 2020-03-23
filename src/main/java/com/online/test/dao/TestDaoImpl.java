@@ -5,7 +5,7 @@ import java.math.BigInteger;
 import com.online.test.bean.Test;
 import com.online.tets.util.TestCollection;
 
-public class TestDao implements OnlineTestDao {
+public class TestDaoImpl implements TestDaoI {
 
 	TestCollection testCollect = new TestCollection();
 	
@@ -13,25 +13,29 @@ public class TestDao implements OnlineTestDao {
 	public Test addTest(Test test) {
 		// TODO Auto-generated method stub
 		
-		testCollect.addTest(test);
+		return testCollect.addTest(test);
 		
-		return test;
 	}
 
 	@Override
-	public Test updateTest(BigInteger testId, Test test) {
+	public Test updateTest(BigInteger testId, Test test, String updateType) {
 		// TODO Auto-generated method stub
 		
 		Test currentTest = testCollect.showTest(testId);
-		
-		System.out.println(currentTest.getTestId());
 		
 		test.setTestId(currentTest.getTestId());
 		test.setTestTitle(currentTest.getTestTitle());
 		test.setCurrentQuestion(currentTest.getCurrentQuestion());
 		test.setTestMarksScored(currentTest.getTestMarksScored());
-		test.setTestQuestions(currentTest.getTestQuestions());
-		test.setTestTotalMarks(currentTest.getTestMarksScored());
+		
+		if(updateType.equals("duration"))
+		 test.setTestQuestions(currentTest.getTestQuestions());
+		else
+			test.setTestDuration(currentTest.getTestDuration());
+		
+		if(currentTest.getTestMarksScored() != null)
+		 test.setTestTotalMarks(currentTest.getTestMarksScored());
+		
 		test.setStartTime(currentTest.getStartTime());
 		
 		return testCollect.updateTest(testId, test);
@@ -40,10 +44,10 @@ public class TestDao implements OnlineTestDao {
 	}
 
 	@Override
-	public void deleteTest(BigInteger testId) {
+	public Test deleteTest(BigInteger testId) {
 		// TODO Auto-generated method stub
 		
-		testCollect.deleteTest(testId);
+		return testCollect.deleteTest(testId);
 		
 	}
 

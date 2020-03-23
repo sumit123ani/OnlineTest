@@ -37,16 +37,31 @@ public class QuestionCollection {
 	{
 		for(Question que : questionList)
 		{
-		if(que.getQuestionId() == id)
+		if(que.getQuestionId().compareTo(id) == 0)
 		  return que;
 		}
 		return null;
 	}
 	
-	public Question addQuestion(BigInteger tId, Question que)
+	public Question addQuestion(Question que)
 	{
 		questionList.add(que);
 		return que;
+	}
+	
+	public Question updateQuestion(BigInteger id, Question question)
+	{
+		int index = 0;
+		
+		for(int i =0; i<questionList.size(); i++)
+		{
+			if(questionList.get(i).getQuestionId().compareTo(id) == 0)
+				index = i;
+		}
+		
+	 questionList.set(index, question);
+		
+	 return question;
 	}
 	
 }

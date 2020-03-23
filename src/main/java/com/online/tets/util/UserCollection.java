@@ -12,20 +12,18 @@ public class UserCollection {
 	static HashMap<Long, User> userMap = new HashMap<Long, User>();
 	static Test userTest = new Test();
 	
-	
-	
 	static
 	{
-		userMap.put((long) 1,  new User((long) 1,  "Sumit123",      userTest, true, "Sumit@123"));
-		userMap.put((long) 2,  new User((long) 2,  "Amit123",       userTest, false, "Sumit@123"));
-		userMap.put((long) 3,  new User((long) 3,  "Ani998",        userTest, false, "Sumit@123"));
-		userMap.put((long) 4,  new User((long) 4,  "Aman002",       userTest, false, "Sumit@123"));
-		userMap.put((long) 5,  new User((long) 5,  "Vivek334",      userTest, false, "Sumit@123"));
-		userMap.put((long) 6,  new User((long) 6,  "Rj12_ani",      userTest, false, "Sumit@123"));
-		userMap.put((long) 7,  new User((long) 7,  "Kumar332_a",    userTest, true, "Sumit@123"));
-		userMap.put((long) 8,  new User((long) 8,  "Susil887",      userTest, true, "Sumit@123"));
-		userMap.put((long) 9,  new User((long) 9,  "kapil29sharma", userTest, true, "Sumit@123"));
-		userMap.put((long) 10, new User((long) 10, "Avinash02kl",   userTest, true, "Sumit@123"));
+		userMap.put((long) 1001,  new User((long) 1001,  "Sumit123",      userTest, true, "Sumit@123"));
+		userMap.put((long) 1002,  new User((long) 1002,  "Amit123",       userTest, false, "Sumit@123"));
+		userMap.put((long) 1003,  new User((long) 1003,  "Ani998",        userTest, false, "Sumit@123"));
+		userMap.put((long) 1004,  new User((long) 1004,  "Aman002",       userTest, false, "Sumit@123"));
+		userMap.put((long) 1005,  new User((long) 1005,  "Vivek334",      userTest, false, "Sumit@123"));
+		userMap.put((long) 1006,  new User((long) 1006,  "Rj12_ani",      userTest, false, "Sumit@123"));
+		userMap.put((long) 1007,  new User((long) 1007,  "Kumar332_a",    userTest, true, "Sumit@123"));
+		userMap.put((long) 1008,  new User((long) 1008,  "Susil887",      userTest, true, "Sumit@123"));
+		userMap.put((long) 1009,  new User((long) 1009,  "kapil29sharma", userTest, true, "Sumit@123"));
+		userMap.put((long) 1010, new User((long)  1010,  "Avinash02kl",   userTest, true, "Sumit@123"));
 	}
 	
 	static public void addUser(User u)
